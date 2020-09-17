@@ -3,7 +3,7 @@ module.exports = {
   devServer: {
     proxy: {
       "^/honnyaku-server/api": {
-        target: "http://honnyaku-server.yumizsui.trap.show:4000"
+        target: "http://honnyaku-server.yumizsui.trap.show"
       }
     },
     overlay: {
