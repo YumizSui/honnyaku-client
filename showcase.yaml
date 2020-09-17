@@ -2,8 +2,6 @@ type: static
 
 work_dir: ./dist
 
-internal: hard
-
 branch:
   master:
     startup: |
