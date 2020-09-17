@@ -1,5 +1,14 @@
 <template>
   <div class="translation">
+    <div class="submit">
+      <b-button
+        @click="postTranslation()"
+        class="submit-button"
+        v-if="inputSentence !== ''"
+        >translate it!</b-button
+      >
+      <b-button class="submit-button" v-else disabled>translate it!</b-button>
+    </div>
     <div class="translation-form">
       <div class="selection">
         <b-dropdown class="selection-dropdown" :text="getLang(source)">
@@ -17,15 +26,6 @@
         v-model="inputSentence"
       >
       </textarea>
-    </div>
-    <div class="submit">
-      <b-button
-        @click="postTranslation()"
-        class="submit-button"
-        v-if="inputSentence !== ''"
-        >translate it!</b-button
-      >
-      <b-button class="submit-button" v-else disabled>translate it!</b-button>
     </div>
     <div class="translation-form">
       <div class="selection">
@@ -57,9 +57,10 @@
 
 .translation-form {
   position: relative;
-  width: 50%;
+  width: 100%;
   padding: 12px;
   margin: 0;
+  display: block;
 }
 
 .selection {
@@ -108,6 +109,20 @@
 .translate-box[readonly] {
   border: none;
   outline: none;
+}
+
+@media screen and (max-width: 767px) {
+  .translation {
+    flex-direction: column;
+  }
+  .submit {
+    top: calc(50% + 8px);
+    left: calc(50% - 90px);
+  }
+  .submit-button {
+    width: 180px;
+    height: 30px;
+  }
 }
 </style>
 
