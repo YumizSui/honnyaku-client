@@ -1,9 +1,11 @@
 module.exports = {
-  publicPath: "/honnyaku-server",
   devServer: {
     proxy: {
-      "^/honnyaku-server/api": {
-        target: "https://yumizsui.trap.show/honnyaku-server/"
+      "^/api": {
+        target: "http://honnyaku-server.yumizsui.trap.show",
+        pathRewrite: {
+          "^/api/": "/"
+        }
       }
     },
     overlay: {
